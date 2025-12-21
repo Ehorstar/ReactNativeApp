@@ -34,6 +34,9 @@ const styles = StyleSheet.create({
   danger: {
     backgroundColor: "#dc3545",
   },
+  none:{
+    backgroundColor: "transparent",
+  }
 });
 
 export default styles;

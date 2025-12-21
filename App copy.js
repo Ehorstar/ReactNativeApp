@@ -1,0 +1,132 @@
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button as ButtonRN,
+  Pressable,
+  Image,
+  ImageBackground,
+  Modal,
+  FlatList,
+} from "react-native";
+import {
+  SafeAreaView,
+  useSafeAreaInsets,
+} from "react-native-safe-area-context";
+import Button from "./src/ui/components/Button/Button";
+import AntDesign from "@expo/vector-icons/AntDesign";
+import Separator from "./src/ui/components/Separator/Separator";
+import { useState } from "react";
+import AppModal from "./src/ui/components/AppModal/AppModal";
+import { products } from "./src/data/products";
+
+export default function App() {
+  const [visible, setVisible] = useState(false);
+
+  const handlePress = () => {
+    alert("Button pressed!");
+  };
+
+  return (
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.heading}>My App</Text>
+
+      <ButtonRN title="Click me" onPress={handlePress} color="red" disabled />
+
+      <Pressable
+        onPress={handlePress}
+        style={({ pressed }) => [
+          styles.button,
+          pressed && styles.pressed,
+          { marginTop: 20 },
+        ]}
+        hitSlop={20}
+      >
+        <Text style={{ color: "white" }}>Hello</Text>
+      </Pressable>
+
+      <Separator size={20} />
+
+      <Button
+        text="Click me"
+        onPress={() => setVisible(true)}
+        variant="primary"
+        disabled={false}
+        icon={<AntDesign name="android" size={24} color="black" />}
+        style={{ marginTop: 20 }}
+      />
+
+      <AppModal visible={visible} onClose={() => setVisible(false)}>
+        <Text>Modal Content</Text>
+      </AppModal>
+
+      <View
+        style={{
+          backgroundColor: "#ddd",
+          flex: 1,
+          flexDirection: "column",
+          marginTop: 20,
+          alignItems: "center",
+        }}
+      >
+        <Text>Flexbox Example</Text>
+        <Text style={{ alignSelf: "flex-end" }}>Flexbox Example</Text>
+        <Text>Flexbox Example</Text>
+
+        {/* <View style={{ backgroundColor: "red", flex: 1 }}></View>
+        <View style={{ backgroundColor: "green", flex: 1 }}></View>
+        <View style={{ backgroundColor: "blue", flex: 1 }}></View> */}
+      </View>
+
+      {/* <FlatList
+        data={products}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View>
+            <Text>{item.title}</Text>
+          </View>
+        )}
+      /> */}
+
+      {/* <Separator size={20} /> */}
+
+      {/* <Image
+        source={{
+          uri: "https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?cs=srgb&dl=pexels-stefanstefancik-91227.jpg&fm=jpg",
+        }}
+        style={{ width: "100%", height: 200, resizeMode: "cover" }}
+      />
+
+      <Image
+        source={require("./assets/favicon.png")}
+        style={{ width: 200, height: 100, resizeMode: "contain", marginTop: 20 }}
+        accessibilityLabel='Icon'
+      />
+
+      <ImageBackground
+        source={{ uri: "https://images.pexels.com/photos/15286/pexels-photo.jpg" }}
+        style={{ width: "100%", height: 200, resizeMode: "cover", marginTop: 20 }}
+      /> */}
+    </SafeAreaView>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+  },
+  heading: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  button: {
+    padding: 16,
+    backgroundColor: "dodgerblue",
+    borderRadius: 8,
+  },
+  pressed: {
+    opacity: 0.5,
+  },
+});
