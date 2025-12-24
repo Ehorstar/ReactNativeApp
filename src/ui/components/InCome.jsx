@@ -1,7 +1,4 @@
-import { Image, Pressable, StyleSheet, Text, View } from "react-native";
-import Button from "./Button/Button";
-import AntDesign from "@expo/vector-icons/AntDesign";
-import AppModal from "./AppModal/AppModal";
+import { StyleSheet, Text, View } from "react-native";
 import Entypo from "@expo/vector-icons/Entypo";
 
 const InCome = () => {
