@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AntDesign from "@expo/vector-icons/AntDesign";
-
 import { useState } from "react";
 import AppModal from './AppModal/AppModal';
 import Button from './Button/Button';
@@ -27,6 +26,7 @@ const Header = () => {
           icon={<AntDesign name="bell" size={40} color="white" />}
           onPress={() => setVisible(true)}
         />
+        
         <AppModal visible={visible} onClose={() => setVisible(false)}>
           <Text>No messages.</Text>
         </AppModal>
@@ -39,6 +39,14 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     backgroundColor: "dodgerblue",
     padding: 12,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   img: {
     width: 90,

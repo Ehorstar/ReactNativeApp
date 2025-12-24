@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#007bff",
   },
   text: {
-    color: "white",
+    color: "black",
     fontSize: 16,
     fontWeight: "600",
     textAlign: "center",
@@ -34,9 +34,16 @@ const styles = StyleSheet.create({
   danger: {
     backgroundColor: "#dc3545",
   },
-  none:{
+  none: {
     backgroundColor: "transparent",
-  }
+  },
+  white: {
+    backgroundColor: "white",
+    borderWidth: 3,
+    borderColor: "#ccc",
+    paddingVertical: 8,
+    paddingHorizontal: 15,
+  },
 });
 
 export default styles;
